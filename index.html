@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天知道</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="search-form">
+            <div class="logo"><img src="img/天知道.jpg"></div>
+            <div class="form-group">
+                <input type="text" v-model="city" @keyup.enter="searchWeather" class="input-text"
+                    placeholder="请输入查询的天气">
+                <button class="input_sub" @click="searchWeather">
+                    搜索
+                </button>
+            </div>
+            <div class="hotKey">
+                <a href="javascript:;" @click="changeCity('北京')">北京</a>
+                <a href="javascript:;" @click="changeCity('上海')">上海</a>
+                <a href="javascript:;" @click="changeCity('广州')">广州</a>
+                <a href="javascript:;" @click="changeCity('深圳')">深圳</a>
+            </div>
+        </div>
+        <ul class="weather-list">
+            <li class="weather" v-for="item in weatherList">
+                <div class="weather-type">
+                    <span>{{item.type}}</span>
+                </div>
+                <div class="weather-temp">
+                    <span>{{item.high}}</span>
+                    <span>{{item.low}}</span>
+                </div>
+                <div class="weather-data">
+                    <span>{{item.date}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios@0.19.2/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
